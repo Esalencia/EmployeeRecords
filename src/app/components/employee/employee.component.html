@@ -1,0 +1,32 @@
+<div class="container-fluid">
+<form *ngIf="showAddEmployee" class="add-form" (ngSubmit)="onSubmit()">
+
+<div class="form-floating mb-3">
+    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name">
+    <label for="firstname">enter employee name</label>
+</div>
+<div class="form-floating mb-3">
+    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="id">
+    <label for="lastName">id</label>
+</div>
+<div class="form-floating mb-3">
+    <input type="email" class="form-control" id="salary" name="salary" [(ngModel)]="salary">
+    <label for="email">salary</label>
+</div>
+<div class="form-floating mb-3">
+    <input type="text" class="form-control" id="jobPosition" name="jobPosition" [(ngModel)]="jobPosition">
+    <label for="mobile">Job Position</label>
+</div>
+<div class="form-floating mb-3">
+    <input type="text" class="form-control" id="address" name="address" [(ngModel)]="address">
+    <label for="mobile">Address</label>
+</div>
+<div class="form-floating mb-3">
+    <input type="text" class="phoneNumber" id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber">
+    <label for="mobile">Mobile</label>
+</div>
+<button type="button" class="btn btn-outline-success" (click)="addEmployee()">Add Employee</button>
+</form>
+<app-employee-list></app-employee-list>
+
+</div>
