@@ -21,8 +21,8 @@ export class EmployeeListComponent {
   constructor(private employeeService: EmployeeService){}
 
 
-  /*onEdit(){}
+  onEdit(){}
 
-  onDelete(){}*/
+  onDelete(){}
 }
 

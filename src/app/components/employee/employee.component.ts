@@ -26,14 +26,14 @@ export class EmployeeComponent implements OnInit{
     
   
   ngOnInit(): void {
-    this.employeeService.getEmployeeList().subscribe({
+   /* this.employeeService.getEmployeeList().subscribe({
       next:(data:any) =>{
-        this.records = data.employeeRecords
+        this.records = data.Records
       },
       error:(err:any) =>{
         console.log("error ",err)
       }
-     })
+     })*/
   }
 
   addEmployee() {}
