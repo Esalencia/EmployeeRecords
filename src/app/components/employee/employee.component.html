@@ -1,32 +1,31 @@
-<div class="container-fluid">
-<form *ngIf="showAddEmployee" class="add-form" (ngSubmit)="onSubmit()">
-
-<div class="form-floating mb-3">
-    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name">
-    <label for="firstname">enter employee name</label>
+<div class="container">
+    <form  class="add-form">
+        <div class="form-control">
+            <label for="name">Name</label>
+            <input type="text" name="text" [(ngModel)]="name" id="text" placeholder="Add name"/>
+        </div>
+        <div class="form-control">
+            <label for="id">Employee Id</label>
+            <input type="text" name="id" [(ngModel)]="id" id="id" placeholder="Employee Id"/>
+        </div>
+        <div class="form-control">
+            <label for="address">Employee <address></address></label>
+            <input type="text" name="address" [(ngModel)]="address" id="address" placeholder="Employee address"/>
+        </div>
+        <div class="form-control">
+            <label for="salary">Employee salary</label>
+            <input type="text" name="salary" [(ngModel)]="salary" id="salary" placeholder="Employee salary"/>
+        </div>
+        <div class="form-control">
+            <label for="jobPosition">Employee job Position</label>
+            <input type="text" name="jobPosition" [(ngModel)]="jobPosition" id="jobPosition" placeholder="Employee job Position"/>
+        </div>
+        <div class="form-control">
+            <label for="phoneNumber">Employee Id</label>
+            <input type="text" name="phoneNumber" [(ngModel)]="phoneNumber" id="phoneNumber" placeholder="Employee phone Number"/>
+        </div>
+    </form> 
+     <button mat-raised-button color="purple" (click)="addEmployee()"> Add Employee </button>
+    <button mat-raised-button color="purple"  (click)="deleteEmployee()"> Delete Employee </button>
 </div>
-<div class="form-floating mb-3">
-    <input type="text" class="form-control" id="id" name="id" [(ngModel)]="id">
-    <label for="lastName">id</label>
-</div>
-<div class="form-floating mb-3">
-    <input type="email" class="form-control" id="salary" name="salary" [(ngModel)]="salary">
-    <label for="email">salary</label>
-</div>
-<div class="form-floating mb-3">
-    <input type="text" class="form-control" id="jobPosition" name="jobPosition" [(ngModel)]="jobPosition">
-    <label for="mobile">Job Position</label>
-</div>
-<div class="form-floating mb-3">
-    <input type="text" class="form-control" id="address" name="address" [(ngModel)]="address">
-    <label for="mobile">Address</label>
-</div>
-<div class="form-floating mb-3">
-    <input type="text" class="phoneNumber" id="phoneNumber" name="phoneNumber" [(ngModel)]="phoneNumber">
-    <label for="mobile">Mobile</label>
-</div>
-<button type="button" class="btn btn-outline-success" (click)="addEmployee()">Add Employee</button>
-</form>
 <app-employee-list></app-employee-list>
-
-</div>

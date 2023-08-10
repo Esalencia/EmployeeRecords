@@ -1,7 +1,11 @@
 import { Component,OnInit, Output, EventEmitter } from '@angular/core';
+import { employeeRecords } from 'src/app/employeeRecords';
+import { FormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Subscription } from "rxjs";
-import { EmployeeListComponent, employeeRecord } from '../employee-list/employee-list.component';
+import { EmployeeListComponent } from '../employee-list/employee-list.component';
 
 @Component({
   selector: 'app-employee',
@@ -9,54 +13,31 @@ import { EmployeeListComponent, employeeRecord } from '../employee-list/employee
   styleUrls: ['./employee.component.scss']
 })
 export class EmployeeComponent implements OnInit{
-
   name:string;
-  id: string;
+  id:string;
+  address:string;
   salary:string;
   jobPosition:string;
-  address:string;
   phoneNumber:string;
-  subscription: Subscription;
-  showAddEmployee:boolean;
- 
 
-  constructor(private employeeService: EmployeeService){
-    this.subscription = this.employeeService
-    .addEmployee()
-    .subscribe((value) => (this.showAddTask= value));
-  }
+  records: employeeRecords[]=[];
+
+  constructor(private employeeService: EmployeeService ){}
+    
   
   ngOnInit(): void {
-    
-  }
-  onSubmit(){
-
-    if (!this.name) {
-      alert('Please Bruh add some damn text');
-      return;
-    }
-  
-
- const newEmployee: employeeRecord = {
-    name: this.name,
-    id: this.id,
-     salary: this.salary,
-     jobPosition:this.jobPosition,
-     address:this.address,
-     phoneNumber:this.phoneNumber
-
-   };
-
- this.addEmployee.emit(newEmployee);
-
-  this.name='';
-  this.id='';
-  this.salary= '';
-  this.jobPosition='';
-  this.address= '';
-  this.phoneNumber= '';
-  
-
+    this.employeeService.getEmployeeList().subscribe({
+      next:(data:any) =>{
+        this.records = data.employeeRecords
+      },
+      error:(err:any) =>{
+        console.log("error ",err)
+      }
+     })
   }
 
+  addEmployee() {}
+
+  deleteEmployee(){}
+  
 }
