@@ -10,6 +10,9 @@ import { EmployeeListComponent } from './components/employee-list/employee-list.
 import { EmployeeComponent } from './components/employee/employee.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserAnimationsModule,
     AppRoutingModule,
     MatTableModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule,
+    MatIconModule
   ],
   exports:[],
   providers: [],
