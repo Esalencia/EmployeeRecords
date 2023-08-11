@@ -1,31 +1,32 @@
 <div class="container">
-    <form  class="add-form">
+    <form  class="add-form" (ngSubmit)="onSubmit()">
         <div class="form-control">
-            <label for="name">Name</label>
-            <input type="text" name="text" [(ngModel)]="name" id="text" placeholder="Add name"/>
+            <label for="name">Employee Name</label>
+            <input type="text" name="name" [(ngModel)]="name" id="text" placeholder="Employee Name"/>
         </div>
+    
         <div class="form-control">
-            <label for="id">Employee Id</label>
+            <label for="id">Emp Id</label>
             <input type="text" name="id" [(ngModel)]="id" id="id" placeholder="Employee Id"/>
         </div>
         <div class="form-control">
-            <label for="address">Employee <address></address></label>
+            <label for="address">Address <address></address></label>
             <input type="text" name="address" [(ngModel)]="address" id="address" placeholder="Employee address"/>
         </div>
         <div class="form-control">
-            <label for="salary">Employee salary</label>
+            <label for="salary">Salary</label>
             <input type="text" name="salary" [(ngModel)]="salary" id="salary" placeholder="Employee salary"/>
         </div>
         <div class="form-control">
-            <label for="jobPosition">Employee job Position</label>
+            <label for="jobPosition">Job Position</label>
             <input type="text" name="jobPosition" [(ngModel)]="jobPosition" id="jobPosition" placeholder="Employee job Position"/>
         </div>
         <div class="form-control">
-            <label for="phoneNumber">Employee Id</label>
+            <label for="phoneNumber">Phone Number</label>
             <input type="text" name="phoneNumber" [(ngModel)]="phoneNumber" id="phoneNumber" placeholder="Employee phone Number"/>
         </div>
+
     </form> 
-     <button mat-raised-button color="primary" (click)="addEmployee()"> Add Employee </button>
-    <button mat-raised-button color="basic"  (click)="deleteEmployee()"> Delete Employee </button>
+     
 </div>
-<app-employee-list></app-employee-list>
+

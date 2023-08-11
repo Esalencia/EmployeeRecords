@@ -1,11 +1,11 @@
 import { Component,OnInit, Output, EventEmitter } from '@angular/core';
 import { employeeRecords } from 'src/app/employeeRecords';
-import { FormsModule } from '@angular/forms';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
 import { EmployeeService } from 'src/app/services/employee.service';
-import { Subscription } from "rxjs";
+import { Subscription, from } from "rxjs";
 import { EmployeeListComponent } from '../employee-list/employee-list.component';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -22,10 +22,16 @@ export class EmployeeComponent implements OnInit{
 
   records: employeeRecords[]=[];
 
-  constructor(private employeeService: EmployeeService ){}
+ employee;
+ employeeId;
+
+  constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute ){}
     
   
   ngOnInit(): void {
+   this.employeeId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.employee = this.employeeService.records.filter(x => x.id == this.employeeId);
+
    /* this.employeeService.getEmployeeList().subscribe({
       next:(data:any) =>{
         this.records = data.Records
@@ -36,8 +42,29 @@ export class EmployeeComponent implements OnInit{
      })*/
   }
 
-  addEmployee() {}
+  onSubmit() {}
+    
+/* const newEmployee:employeeRecords = {
+  name: this.name,
+  id: this.id,
+   salary: this.salary,
+   jobPosition:this.jobPosition,
+   address: this.address,
+   phoneNumber: this.phoneNumber,
+ };
+
+this.onAddEmployee.emit(newEmployee);
+
+this.name='';
+this.id='';
+this.salary= '';
+this.jobPosition='';
+this.address='';
+this.phoneNumber= '';
+
+  }
 
   deleteEmployee(){}
+  */
   
 }

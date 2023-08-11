@@ -36,8 +36,6 @@ export class EmployeeService {
     },
   ]
 
-
-
  getEmployeeList(): Observable<employeeRecords[]> {
     return of(this.records)
   }
@@ -48,6 +46,12 @@ export class EmployeeService {
     });
     
     console.log(this.records)
+  }
+
+ /* updateEmployee(id: string): any {
+   this.records =this.records.navigate((record : employeeRecords) => {
+    return record. id !== id
+   });
   }
 
  /* 

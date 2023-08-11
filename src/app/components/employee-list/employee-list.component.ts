@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeService } from 'src/app/services/employee.service';
+import{ActivatedRoute, Router} from '@angular/router'
 import {NgFor} from '@angular/common';
 import {MatTableModule} from '@angular/material/table';
 import {MatButtonModule} from '@angular/material/button';
@@ -21,11 +22,16 @@ export class EmployeeListComponent implements OnInit {
   displayedColumns: string[] = [ 'name','salary', 'jobPosition', 'address', 'phoneNumber', 'actions'];
   Records: employeeRecords[] = [];
   dataSource = this.Records;  
-
-  constructor(private employeeService: EmployeeService){}
+ 
+ 
+  constructor(private employeeService: EmployeeService,  private router: Router ){}
 
   ngOnInit(): void {
       this.getEmployees()
+  }
+
+  addNewEmployee(){
+    this.router.navigate(['/employee'])
   }
 
   getEmployees(){
@@ -37,7 +43,9 @@ export class EmployeeListComponent implements OnInit {
   }
 
 
-  onEdit(){}
+  onEdit(){
+    this.router.navigate([])
+  }
 
   delete(employeeId: string){    
     this.employeeService.deleteEmployee(employeeId)
