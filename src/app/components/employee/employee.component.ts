@@ -5,7 +5,7 @@ import {MatButtonModule} from '@angular/material/button';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { Subscription, from } from "rxjs";
 import { EmployeeListComponent } from '../employee-list/employee-list.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee',
@@ -25,7 +25,7 @@ export class EmployeeComponent implements OnInit{
  employee;
  employeeId;
 
-  constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute ){}
+  constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute, private router: Router){}
     
   
   ngOnInit(): void {
@@ -42,9 +42,9 @@ export class EmployeeComponent implements OnInit{
      })*/
   }
 
-  onSubmit() {}
+  onSubmit() {
     
-/* const newEmployee:employeeRecords = {
+ const newEmployee:employeeRecords = {
   name: this.name,
   id: this.id,
    salary: this.salary,
@@ -53,7 +53,7 @@ export class EmployeeComponent implements OnInit{
    phoneNumber: this.phoneNumber,
  };
 
-this.onAddEmployee.emit(newEmployee);
+this.employeeService.addEmployee(newEmployee);
 
 this.name='';
 this.id='';
@@ -64,7 +64,9 @@ this.phoneNumber= '';
 
   }
 
-  deleteEmployee(){}
-  */
+  goBack(){
+    this.router.navigate(['/employee-list'])
+  }
+ 
   
 }

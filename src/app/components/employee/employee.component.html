@@ -1,8 +1,8 @@
 <div class="container">
-    <form  class="add-form" (ngSubmit)="onSubmit()">
+    <form class="add-form" (ngSubmit)="onSubmit()">
         <div class="form-control">
             <label for="name">Employee Name</label>
-            <input type="text" name="name" [(ngModel)]="name" id="text" placeholder="Employee Name"/>
+            <input type="text" name="name" [(ngModel)]="name" id="name" placeholder="Employee Name"/>
         </div>
     
         <div class="form-control">
@@ -25,8 +25,7 @@
             <label for="phoneNumber">Phone Number</label>
             <input type="text" name="phoneNumber" [(ngModel)]="phoneNumber" id="phoneNumber" placeholder="Employee phone Number"/>
         </div>
-
-    </form> 
-     
+        <input type="submit" value="Save Employee" class="btn btn-block" />
+      </form> 
 </div>
-
+<button mat-raised-button color="primary" (click)="goBack()">Back</button>

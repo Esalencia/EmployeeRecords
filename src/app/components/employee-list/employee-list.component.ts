@@ -43,15 +43,15 @@ export class EmployeeListComponent implements OnInit {
   }
 
 
-  onEdit(){
-    this.router.navigate([])
+  onEdit(employeeId: string ){
+  this.router.navigate(['/employee', employeeId])
+   this.employeeService.updateEmployee
   }
+
+
 
   delete(employeeId: string){    
     this.employeeService.deleteEmployee(employeeId)
-
-
     this.getEmployees()
   }
 }
-

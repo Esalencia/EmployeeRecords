@@ -48,8 +48,12 @@ export class EmployeeService {
     console.log(this.records)
   }
 
- /* updateEmployee(id: string): any {
-   this.records =this.records.navigate((record : employeeRecords) => {
+  addEmployee(employee:employeeRecords) /*: Observable<employeeRecords> */{
+    this.records.push(employee)
+  }
+
+  updateEmployee(id: string): void {
+   this.records =this.records.filter((record : employeeRecords) => {
     return record. id !== id
    });
   }
