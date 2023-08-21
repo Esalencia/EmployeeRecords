@@ -12,13 +12,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { EmployeeDetailsComponent } from './components/employee-details/employee-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeListComponent,
-    EmployeeComponent
+    EmployeeComponent,
+    EmployeeDetailsComponent
   ],
   imports: [
     BrowserModule,

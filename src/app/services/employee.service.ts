@@ -39,8 +39,16 @@ export class EmployeeService {
  getEmployeeList(): Observable<employeeRecords[]> {
     return of(this.records)
   }
-
-  deleteEmployee(id: string): void {
+ getEmployee(id:string):any{
+ /* this.records =this.records.get((record : employeeRecords) => 
+    return record. id !== id
+   });*/
+   this.records.map((record : employeeRecords)=>{
+   return record. id !== id
+ });
+}
+ 
+deleteEmployee(id: string): void {
     this.records = this.records.filter((record : employeeRecords) => {
       return record.id !== id
     });
@@ -52,7 +60,7 @@ export class EmployeeService {
     this.records.push(employee)
   }
 
-  updateEmployee(id: string): void {
+  updateEmployee(id: string): any {
    this.records =this.records.filter((record : employeeRecords) => {
     return record. id !== id
    });

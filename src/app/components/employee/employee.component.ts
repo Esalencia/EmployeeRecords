@@ -22,15 +22,13 @@ export class EmployeeComponent implements OnInit{
 
   records: employeeRecords[]=[];
 
- employee;
- employeeId;
+ 
 
   constructor(private employeeService: EmployeeService, private activatedRoute: ActivatedRoute, private router: Router){}
     
   
   ngOnInit(): void {
-   this.employeeId = this.activatedRoute.snapshot.paramMap.get('id');
-    this.employee = this.employeeService.records.filter(x => x.id == this.employeeId);
+  
 
    /* this.employeeService.getEmployeeList().subscribe({
       next:(data:any) =>{
@@ -41,6 +39,7 @@ export class EmployeeComponent implements OnInit{
       }
      })*/
   }
+
 
   onSubmit() {
     
