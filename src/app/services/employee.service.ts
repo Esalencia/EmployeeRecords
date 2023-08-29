@@ -60,10 +60,8 @@ deleteEmployee(id: string): void {
     this.records.push(employee)
   }
 
-  updateEmployee(id: string): any {
-   this.records =this.records.filter((record : employeeRecords) => {
-    return record. id !== id
-   });
+  updateEmployee(employee) {
+   this.records.push(employee)
   }
 
  /* 

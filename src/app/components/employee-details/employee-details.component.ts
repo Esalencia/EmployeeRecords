@@ -26,11 +26,13 @@ employeeForm: NgForm;
 
  ngOnInit():void{
   this.employeeId = this.activatedRoute.snapshot.paramMap.get('id');
-  this.employee = this.employeeService.records.filter(x => x.id == this.employeeId);
+  this.employee = this.employeeService.records.filter(x => x.id == this.employeeId)[0];
+  console.log(this.employee)
  }
 
  onSubmit(){
- this.employeeForm.form.patchValue({
+  this.employeeService.updateEmployee(this.employeeId)
+ /*this.employeeForm.form.patchValue({
     name: 'me',
     id: '2',
     jobPosition: 'd',
@@ -39,8 +41,8 @@ employeeForm: NgForm;
     phoneNumber:'4',
   })
 this.employeeService.getEmployee(this.employeeId)
+ }*/
  }
-
  goBack(){
   this.router.navigate(['/employee-list'])
  }
